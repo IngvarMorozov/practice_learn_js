@@ -92,7 +92,7 @@
       "max-len": [
         "error",
         {
-          "code": 100000,
+          "code": 80,
           "ignoreUrls": true
         }
       ],
@@ -146,7 +146,7 @@
         "always"
       ],
       "space-before-function-paren": [
-        "0",
+        "error",
         {
           "anonymous": "never",
           "named": "never",

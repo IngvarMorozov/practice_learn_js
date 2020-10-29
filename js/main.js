@@ -1,87 +1,61 @@
 'use strict';
 
-// function min(a, b) {
-//   if (a > b) {
-//     return b;
-//   } else if (a < b) {
-//     return a;
+// O B J E C T S
+
+// Practice
+// Task 1
+// const user = {
+//   name: 'John',
+//   surname: 'Smith',
+// };
+// user.name = 'Pete';
+// delete user.name;
+// console.log();
+
+// Task 2
+// function isEmpty(obj) {
+//   for (const key in obj) {
+//     // если тело цикла начнет выполняться - значит в объекте есть свойства
+//     return false;
 //   }
-//   return a;
+//   return true;
 // }
-// console.log(min(2, 1));
-// console.log(min(2, -1));
-// console.log(min(1, 1));
+// const schedule = {};
+// console.log(isEmpty(schedule));
+// schedule['8:30'] = 'get up';
+// console.log(isEmpty(schedule));
 
-// functions
-// function pow(x, n = 2) {
-//   const temp = x ** n;
-//   return temp;
-// }
-// pow(2);
-
-// // function Expression
-// const sayHi = function() {
-//   console.log('Hello World');
+// Task 3
+// const salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130
 // };
-
-// function-"callback"
-// when we pass functions as value
-
-// function ask(question, yes, no) {
-//   if (confirm(question)) yes();
-//   else no();
+// let sum = 0; // or
+// if (!isEmpty(salaries)) {
+//   for (const key in salaries) {
+//     sum += salaries[key];
+//   }
+// } else {
+//   sum = 0;
 // }
-// function showOk() {
-//   alert('You are agree');
+// console.log(sum);
+
+// // Task 4
+// function multiplyNumeric(obj) {
+//   for (const key in obj) {
+//     if (typeof obj[key] === 'number') {
+//       obj[key] *= 2;
+//     }
+//   }
 // }
-// function showCancel() {
-//   alert('You canceled ');
-// }
 
-// ask('Are you agree?', showOk, showCancel);
-
-// переопределение
-
-// const age = 16;
-
-// let welcome;
-
-// if (age < 18) {
-//   welcome = function () {
-//     console.log('hello');
-//   };
-//   welcome();
-// }
-// welcome();
-// welcome = function () {
-//   console.log('Hi');
+// const menu = {
+//   width: 200,
+//   height: 300,
+//   title: 'My menu',
 // };
+// console.log(menu);
 
-// welcome();
-
-// Arrow functions
-
-// function ask(question, yes, no) {
-//   if (confirm(question)) yes();
-//   else no();
-// }
-// function showOk() {
-//   alert('You are agree');
-// }
-// function showCancel() {
-//   alert('You canceled ');
-// }
-
-// ask('Are you agree?', showOk, showCancel);
-
-// const ask = (question, yes, no) => {
-//   if (confirm(question)) yes();
-//   else no();
-// };
-// const showOk = () => alert('You are agree');
-// const showCancel = () => alert('You canceled');
-
-// ask('Are you agree?', showOk, showCancel);
-// I like it, it is very minimalistic
-
-
+// multiplyNumeric(menu);
+// console.log(menu);
