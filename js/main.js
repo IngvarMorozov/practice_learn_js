@@ -12,19 +12,19 @@
 // console.log(min(2, -1));
 // console.log(min(1, 1));
 
-// Functions
+// functions
 // function pow(x, n = 2) {
 //   const temp = x ** n;
 //   return temp;
 // }
 // pow(2);
 
-// // Function Expression
+// // function Expression
 // const sayHi = function() {
 //   console.log('Hello World');
 // };
 
-// Function-"callback"
+// function-"callback"
 // when we pass functions as value
 
 // function ask(question, yes, no) {
@@ -59,7 +59,7 @@
 
 // welcome();
 
-// Arrow Functions
+// Arrow functions
 
 // function ask(question, yes, no) {
 //   if (confirm(question)) yes();
@@ -72,14 +72,16 @@
 //   alert('You canceled ');
 // }
 
+// ask('Are you agree?', showOk, showCancel);
 
+// const ask = (question, yes, no) => {
+//   if (confirm(question)) yes();
+//   else no();
+// };
+// const showOk = () => alert('You are agree');
+// const showCancel = () => alert('You canceled');
 
-const ask = (question, yes, no) => {
-  if (confirm(question)) yes();
-  else no();
-};
-const showOk = () => alert('You are agree');
-const showCancel = () => alert('You canceled');
+// ask('Are you agree?', showOk, showCancel);
+// I like it, it is very minimalistic
 
-ask('Are you agree?', showOk, showCancel);
 
