@@ -1,61 +1,67 @@
 'use strict';
 
-// O B J E C T S
+// // Copying objects
 
-// Practice
-// Task 1
 // const user = {
-//   name: 'John',
-//   surname: 'Smith',
+//   name: 'Ivan',
 // };
-// user.name = 'Pete';
-// delete user.name;
-// console.log();
+// console.log(user.name);
+// const admin = user;
+// admin.name = 'Igor';
+// console.log(user.name); // Igor
 
-// Task 2
-// function isEmpty(obj) {
-//   for (const key in obj) {
-//     // если тело цикла начнет выполняться - значит в объекте есть свойства
-//     return false;
-//   }
-//   return true;
-// }
-// const schedule = {};
-// console.log(isEmpty(schedule));
-// schedule['8:30'] = 'get up';
-// console.log(isEmpty(schedule));
+// // Objects comparison
 
-// Task 3
-// const salaries = {
-//   John: 100,
-//   Ann: 160,
-//   Pete: 130
+// console.log(admin === user); // true
+
+// const a = { name: 'Igor' };
+// const b = { name: 'Igor' };
+
+// console.log(a === b);
+
+// // Cloning
+
+// const user = {
+//   name: 'Ivan',
+//   age: 30,
 // };
-// let sum = 0; // or
-// if (!isEmpty(salaries)) {
-//   for (const key in salaries) {
-//     sum += salaries[key];
-//   }
-// } else {
-//   sum = 0;
-// }
-// console.log(sum);
 
-// // Task 4
-// function multiplyNumeric(obj) {
-//   for (const key in obj) {
-//     if (typeof obj[key] === 'number') {
-//       obj[key] *= 2;
-//     }
-//   }
-// }
+// // const clone = {};
 
-// const menu = {
-//   width: 200,
-//   height: 300,
-//   title: 'My menu',
+// // for (const key in user) {
+// //   clone[key] = user[key];
+// // }
+
+// // clone.name = 'Igor';
+// // console.log(user.name);
+
+// // or you can use method Object.assign
+
+// const clone = Object.assign({}, user);
+// clone.name = 'Igor';
+// console.log(clone.name);
+// console.log(user.name);
+
+// Embedded cloning
+
+// const user = {
+//   name: 'Ivan',
+//   sizes: {
+//     height: 182,
+//     width: 50
+//   }
 // };
-// console.log(menu);
+// console.log(user.sizes.height);
 
-// multiplyNumeric(menu);
-// console.log(menu);
+// const clone = Object.assign({}, user);
+
+// console.log(clone.sizes === user.sizes);
+// user.sizes.width++;
+// console.log(clone.sizes);
+
+//_.cloneDeep Method + you need to install Lodash library
+
+// const objects = [{ a: 1 }, { b: 2 }];
+
+// const deep = _.cloneDeep(objects);
+// console.log(deep[0] === objects[0]); // => false
