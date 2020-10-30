@@ -1,67 +1,106 @@
 'use strict';
 
-// // Copying objects
+// Object's methods
 
+// Easy example
 // const user = {
-//   name: 'Ivan',
-// };
-// console.log(user.name);
-// const admin = user;
-// admin.name = 'Igor';
-// console.log(user.name); // Igor
-
-// // Objects comparison
-
-// console.log(admin === user); // true
-
-// const a = { name: 'Igor' };
-// const b = { name: 'Igor' };
-
-// console.log(a === b);
-
-// // Cloning
-
-// const user = {
-//   name: 'Ivan',
+//   name: 'John',
 //   age: 30,
 // };
 
-// // const clone = {};
+// user.sayHi = function () {
+//   console.log('Hello');
+// };
 
-// // for (const key in user) {
-// //   clone[key] = user[key];
-// // }
+// user.sayHi();
 
-// // clone.name = 'Igor';
-// // console.log(user.name);
+// Shortened method notation
+// const user = {
+//   sayHi() {
+//     console.log('Say Hello');
+//   }
+// }
+// user.sayHi();
 
-// // or you can use method Object.assign
-
-// const clone = Object.assign({}, user);
-// clone.name = 'Igor';
-// console.log(clone.name);
-// console.log(user.name);
-
-// Embedded cloning
+// Keyword <<This>> in methods
 
 // const user = {
-//   name: 'Ivan',
-//   sizes: {
-//     height: 182,
-//     width: 50
+//   name: 'John',
+//   age: 30,
+//   sayName() {
+//     console.log(`My name is ${this.name}`);
 //   }
+// }
+
+// user.sayName();
+
+// Tasks
+
+// function makeUser() {
+//   return {
+//     name: "Джон",
+//     ref: this
+//   };
 // };
-// console.log(user.sizes.height);
 
-// const clone = Object.assign({}, user);
+// let user = makeUser();
 
-// console.log(clone.sizes === user.sizes);
-// user.sizes.width++;
-// console.log(clone.sizes);
+// alert( user.ref.name ); // E R R O R
 
-//_.cloneDeep Method + you need to install Lodash library
+// function makeUser() {
+//   return {
+//     name: "Джон",
+//     ref() {
+//       return this;
+//     }
+//   };
+// };
 
-// const objects = [{ a: 1 }, { b: 2 }];
+// let user = makeUser();
 
-// const deep = _.cloneDeep(objects);
-// console.log(deep[0] === objects[0]); // => false
+// console.log( user.ref().name ); // Джон
+
+// Calculator
+
+// const calculator = {
+//   read() {
+//     this.a = Number(prompt('Please enter first number', 0));
+//     this.b = Number(prompt('Please enter second number', 0));
+//   },
+//   sum() {
+//     return this.a + this.b;
+//   },
+//   mul() {
+//     return this.a * this.b;
+//   }
+// }
+
+// calculator.read();
+// alert(calculator.sum());
+// alert(calculator.mul());
+
+// Ladder
+
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//     return this;
+//   },
+//   down() {
+//     this.step--;
+//     return this;
+//   },
+//   showStep: function () {
+//     // показывает текущую ступеньку
+//     console.log(this.step);
+//     return this;
+//   },
+// };
+
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
+
+// ladder.up().up().up().down().showStep().up().up().showStep(); // 1
