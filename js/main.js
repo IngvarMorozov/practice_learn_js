@@ -1,66 +1,41 @@
 'use strict';
 
-// Object's methods
+// Constructors, creating objects through "new"
 
-// Easy example
-// const user = {
-//   name: 'John',
-//   age: 30,
-// };
+// Constructor Function - is common function. But
+// 1. The name of the design function must start with a capital letter.
+// 2. The design function must be called with the "new" operator.
 
-// user.sayHi = function () {
-//   console.log('Hello');
-// };
-
-// user.sayHi();
-
-// Shortened method notation
-// const user = {
-//   sayHi() {
-//     console.log('Say Hello');
-//   }
-// }
-// user.sayHi();
-
-// Keyword <<This>> in methods
-
-// const user = {
-//   name: 'John',
-//   age: 30,
-//   sayName() {
-//     console.log(`My name is ${this.name}`);
-//   }
+// Example
+// function User(name) {
+//   this.name = name;
+//   this.isAdmin = false;
 // }
 
-// user.sayName();
+// const user = new User('Vasyl');
 
-// Tasks
-
-// function makeUser() {
-//   return {
-//     name: "Джон",
-//     ref: this
-//   };
-// };
-
-// let user = makeUser();
-
-// alert( user.ref.name ); // E R R O R
-
-// function makeUser() {
-//   return {
-//     name: "Джон",
-//     ref() {
-//       return this;
-//     }
-//   };
-// };
-
-// let user = makeUser();
-
-// console.log( user.ref().name ); // Джон
+// console.log(user.name);
+// console.log(user.isAdmin);
 
 // Calculator
+
+// function Calculator() {
+//   this.read = function () {
+//     this.a = Number(prompt('Please enter first number', 0));
+//     this.b = Number(prompt('Please enter second number', 0));
+//   };
+//   this.sum = function () {
+//     return this.a + this.b;
+//   };
+//   this.mul = function () {
+//     return this.a * this.b;
+//   };
+// }
+
+// const calculator = new Calculator();
+// calculator.read();
+// alert(`Sum = ${calculator.sum()}`);
+// alert(`Mul = ${calculator.mul()}`);
 
 // const calculator = {
 //   read() {
@@ -74,33 +49,3 @@
 //     return this.a * this.b;
 //   }
 // }
-
-// calculator.read();
-// alert(calculator.sum());
-// alert(calculator.mul());
-
-// Ladder
-
-// let ladder = {
-//   step: 0,
-//   up() {
-//     this.step++;
-//     return this;
-//   },
-//   down() {
-//     this.step--;
-//     return this;
-//   },
-//   showStep: function () {
-//     // показывает текущую ступеньку
-//     console.log(this.step);
-//     return this;
-//   },
-// };
-
-// ladder.up();
-// ladder.up();
-// ladder.down();
-// ladder.showStep(); // 1
-
-// ladder.up().up().up().down().showStep().up().up().showStep(); // 1
