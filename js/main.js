@@ -1,18 +1,28 @@
 'use strict';
 
-const spam = ['viagra', 'xxx', 'innocent'];
+// function createCalcFunction(n) {
+//   return function() {
+//     console.log(1000 * n);
+//   }
+// }
+// const calc = createCalcFunction(42);
+// calc(30);
 
-function checkSpam(str) {
-  for (let i = 0; i < spam.length; i++) {
-    if (str.toLowerCase().includes(spam[i])) {
-      return true;
-    }
+// function createIncrementor(n) {
+//   return function(num){
+//     return n + num;
+//   }
+// }
+// const addOne = createIncrementor(1);
+// console.log(addOne(3));
+
+function urlGenerator(domain) {
+  return function(url) {
+    return `https://${url}.${domain}`
   }
-  return false;
 }
-console.log(checkSpam('buy vIagra now'));
-console.log(checkSpam('free xxxxx'));
-console.log(checkSpam('innocent rabbit'));
 
-spam[length] = 'fuck';
-console.log(checkSpam('Igor fuck Max'));
+const comUrl = urlGenerator('com')
+console.log(comUrl('google'));
+const uaUrl = urlGenerator('ua');
+console.log(uaUrl('dou'));
